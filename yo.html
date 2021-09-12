@@ -1,0 +1,41 @@
+<html>
+<body>
+        
+<br><b> Choose your favroite gender: </b><br>
+<input type="radio" name="gender" id="M" value="M" checked> Male <br> 
+<input type="radio" name="gender" id="F" value="Female"> Female <br> 
+<input type="radio" name="gender" id="O" value="Other"> Other <br><br>     
+        
+<br><b> Choose your favroite tender: </b><br>
+<input type="radio" name="tender" id="male" value="Male" checked> Male <br> 
+<input type="radio" name="tender" id="female" value="Female"> Female <br> 
+<input type="radio" name="tender" id="other" value="Other"> Other <br><br> 
+<button type="button" onclick=" checkButton()"> Submit </button> 
+     
+    
+
+
+<script>
+    function getCheckedValue(el) {
+  for (var i = 0, length = el.length; i < length; i++) {
+    if (el[i].checked) {
+      return el[i].value;
+      break;
+    }
+  }
+}
+//var gender;
+//var tender;
+function checkButton(){
+    gender = getCheckedValue(document.getElementsByName('gender'));
+    document.write("block "+ gender);
+
+    tender = getCheckedValue(document.getElementsByName('tender'));
+    document.write("block "+ tender);
+    
+   
+}
+
+    </script> 
+    </body>
+</html>

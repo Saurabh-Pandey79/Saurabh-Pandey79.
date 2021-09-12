@@ -1,0 +1,180 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title> Login Page </title>  
+<style> 
+Body {  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: pink;   
+}  
+button {   
+       background-color: #4CAF50;  
+        width: 50%;  
+        text-align: center;
+        color: orange;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+ form {   
+        border: 3px solid #f1f1f1;   
+    }   
+ input[type=text], input[type=password], input[type=email], input[type=tel], input[type=date], input[type=checkbox]  {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid green;   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  .classbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+        text-align: center;
+    }   
+        
+     
+ .container {   
+        padding: 25px;   
+        background-color: lightblue;
+        width: 340px;margin: 50px auto;
+        font-size: 15px;
+
+    }   
+h1{
+    text-align: center;
+}
+</style>   
+<script type="text/javascript">
+  var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+// replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+clevertap.account.push({"id": "84R-544-ZK6Z"});
+clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+(function () {
+        var wzrk = document.createElement('script');
+        wzrk.type = 'text/javascript';
+        wzrk.async = true;
+        wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/a.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wzrk, s);
+ })();
+
+ function passon(){
+    var name = document.getElementById('name').value;
+    var identity = document.getElementById('identity').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var Gender;
+    var r1 = document.getElementById('female');
+    var r2 = document.getElementById('male');
+    if(r1.checked==true)
+        Gender= "F"
+    else if(r2.checked==true)
+        Gender= "M"
+    else
+        Gender= "O"        
+    var DOB = document.getElementById('DOB').value;
+    clevertap.onUserLogin.push(
+    {
+    "Site": {
+    "Name": name,            // String
+    "Identity": identity,              // String or number
+    "Email": email,         // Email address of the user
+    "Phone": phone,           // Phone (with the country code)
+    "Gender": Gender,                     // Can be either M or F
+    "DOB": new Date(DOB),  
+    "MSG-email": false,                
+    "MSG-push": true,                  
+    "MSG-sms": true,                   
+    "MSG-whatsapp": true,              
+    }
+    })
+}
+
+</script>
+</head>    
+<body>    
+    <h1> SWAAGAT HAI </h1> 
+    <form>  
+        <div class="container">   
+            <label>Name : </label>   
+            <input type="text" placeholder="Enter Username" name="name" id="name" required> 
+            <label>Identity : </label>   
+            <input type="text" placeholder="Enter Identity" name="username" id="identity" required>  
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" id="password" required> 
+            <label>Email : </label>  
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+            <label>Phone : </label> 
+            <input type="tel" placeholder="Enter Username" name="phone" name="phone" required>
+            <label>DOB : </label>  
+            <input type="date" placeholder="Enter Username" name="DOB" name="DOB" required>
+            <label>Gender : </label>   
+            <input type="radio"  name="gender" value="F" id="female">
+            <label for="female">Female</label>
+            <input type="radio"  name="gender" value="M" id="male">
+            <label for="male">Male</label>
+            <input type="radio"  name="gender" value="O" id="O">
+            <label for="other">Other</label><br>
+            <label>Email :</label>
+            <input type="radio"  name="email_subscribe" value="true" id="etrue">
+            <label for="true">True</label>
+            <input type="radio"  name="email_subscribe" value="false" id="efalse">
+            <label for="false">False</label><br>
+            <label>Push :</label>
+            <input type="radio"  name="push_subscribe" value="true" id="ptrue">
+            <label for="true">True</label>
+            <input type="radio"  name="push_subscribe" value="false" id="pfalse">
+            <label for="false">False</label><br>
+            <label>SMS :</label>
+            <input type="radio"  name="sms_subscribe" value="true" id="strue"> 
+            <label for="true">True</label>
+            <input type="radio"  name="sms_subscribe" value="false" id="sfalse">
+            <label for="false">False</label><br>
+            <label>WhatsApp :</label>
+            <input type="radio"  name="whatsapp_subscribe" value="true" id="wtrue">
+            <label for="true">True</label>
+            <input type="radio"  name="whatsapp_subscribe" value="false" id="wfalse">
+            <label for="false">False</label><br>
+            <div class="classbtn">
+               <button type="submit">Login</button>  <br> 
+               <button type="submit"> Push Value</button> <br>
+               <button type="submit">event</button>  
+               <button type="submit">custom event</button>
+               <button type="submit">pop-up</button>  <br>
+               <button type="submit">permission</button>  <br> 
+             
+               Remember Me<input type="checkbox" checked="checked"><br>
+               Forgot <a href="#"> password? </a>   
+            </div > 
+        </div>   
+    </form>     
+</body>     
+</html>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
